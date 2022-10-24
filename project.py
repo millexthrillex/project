@@ -13,6 +13,11 @@ def create_pickle_file_maybe(filename):
         with open(filename, 'wb') as handle:
             pickle.dump(list_database, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
+def get_database(PICKLE_FILE):
+    with open(PICKLE_FILE, 'rb') as handle:
+        b = pickle.load(handle)
+    return b
+
 
 
 def req_init_menu_selection():
