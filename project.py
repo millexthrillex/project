@@ -2,7 +2,7 @@ import pyinputplus
 import pickle
 from os import path
 
-PICKLE_FILE= 'list_database.p'
+PICKLE_FILE= 'todo_list_database.p'
 
 # Functions:
 
@@ -10,13 +10,13 @@ PICKLE_FILE= 'list_database.p'
 def create_pickle_file_maybe(filename):
     if not path.exists(filename):
         list_database = dict()
-        with open(filename, 'wb') as handle:
-            pickle.dump(list_database, handle, protocol=pickle.HIGHEST_PROTOCOL)
+        with open(filename, 'wb') as todo_list_database_file:
+            pickle.dump(list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
 
 def get_database(PICKLE_FILE):
-    with open(PICKLE_FILE, 'rb') as handle:
-        b = pickle.load(handle)
-    return b
+    with open(PICKLE_FILE, 'rb') as todo_list_database_file:
+        todo_list_database = pickle.load(todo_list_database_file)
+    return todo_list_database
 
 
 
