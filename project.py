@@ -28,6 +28,19 @@ def req_user_name(todo_list_database):
             continue
         return user_name
 
+def req_existing_user(todo_list_database):
+    while True:    
+        print("names in todo list database")    
+        for name in todo_list_database:
+            print(name)
+        print("enter a name")
+        name = input()
+        if name in todo_list_database:
+            return name
+        else:
+            print("name not in database. Try again:")
+    
+
 def req_init_menu_selection():
     """prints initial menu. requests int input. returns int"""
     print("1. Create new user")
@@ -43,4 +56,8 @@ init_menu_selection = req_init_menu_selection()
 
 if init_menu_selection == 1:
     user_name = req_user_name(todo_list_database)
+    todo_list_database[user_name] = []
+elif init_menu_selection == 2:
+    user_name = req_existing_user(todo_list_database)
+
 
