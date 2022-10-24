@@ -57,7 +57,11 @@ def req_todo_menu_selection():
     return int(selection)
 
 def print_user_names_todo_list(todo_list_database, user_name):
-    print(todo_list_database[user_name])
+    user_names_todo_list = todo_list_database[user_name]
+    pprint(user_names_todo_list)
+    print("length of list is:", len(user_names_todo_list))
+
+
 
 create_pickle_file_maybe(PICKLE_FILE)
 todo_list_database = get_todo_list_database(PICKLE_FILE)
@@ -76,8 +80,6 @@ todo_menu_selection = req_todo_menu_selection()
 
 if todo_menu_selection == 1:
     print_user_names_todo_list(todo_list_database, user_name)
-
-
     
     
 
