@@ -19,11 +19,14 @@ def get_todo_list_database(PICKLE_FILE):
     return todo_list_database
 
 def req_user_name(todo_list_database):
-    print("Enter a username:")
-    user_name = input()
-    user_name = user_name.lower()
-    if user_name.lower
-    return user_name
+    while True:
+        print("Enter a username:")
+        user_name = input()
+        user_name = user_name.lower()
+        if user_name in todo_list_database:
+            print("Name already exists. Try again")
+            continue
+        return user_name
 
 def req_init_menu_selection():
     """prints initial menu. requests int input. returns int"""
