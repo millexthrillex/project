@@ -18,7 +18,10 @@ def get_database(PICKLE_FILE):
         todo_list_database = pickle.load(todo_list_database_file)
     return todo_list_database
 
-
+def req_user_name():
+    print("Enter a username:")
+    user_name = input()
+    return user_name.lower()
 
 def req_init_menu_selection():
     """prints initial menu. requests int input. returns int"""
@@ -32,4 +35,7 @@ def req_init_menu_selection():
 create_pickle_file_maybe(PICKLE_FILE)
 list_database = get_database(PICKLE_FILE)
 init_menu_selection = req_init_menu_selection()
+
+if init_menu_selection == 1:
+    user_name = req_user_name()
 
