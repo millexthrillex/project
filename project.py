@@ -14,5 +14,7 @@ def req_init_menu_selection():
     return int(selection)
 
 
+create_pickle_file_maybe(PICKLE_FILE)
+list_database = get_database(PICKLE_FILE)
 init_menu_selection = req_init_menu_selection()
 
