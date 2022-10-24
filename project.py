@@ -1,6 +1,6 @@
 ##
 import pyinputplus
-
+import json
 
 def req_init_menu_selection():
         """prints initial menu. requests int input. returns int"""
@@ -16,14 +16,18 @@ def req_new_user():
         return user_name
 
 def add_new_user(user_name):
-        with open("todo_user_database.json", "r") as jsonFile:
-                data = json.load(jsonFile)
-        data[user_name] = []
-        with open("todo_user_database.json", "w") as jsonFile:
-                json.dump(data, jsonFile)
+        try:
+                df = pd.read_json('data.json')
+        except (FileNotFoundError, ValueError):
+                init_user = {user_name: [[]]}
+                df = pd.DataFrame(init_user)
+                df.to_json('data.json')
+        return df
 
-init_menu_selection = req_init_menu_selection()
-if init_menu_selection == 1:
-        user_name = req_new_user()
-
+while True:
+        init_menu_selection = req_init_menu_selection()
+        if init_menu_selection == 1:
+                user_name = req_new_user()
+                add_new_user(user_name)
+        elif init_menu_selection == 2:
 
