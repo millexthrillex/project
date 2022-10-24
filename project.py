@@ -1,6 +1,7 @@
 import pyinputplus
 import pickle
 from os import path
+from pprint import pprint
 
 PICKLE_FILE= 'todo_list_database.p'
 
@@ -61,7 +62,10 @@ def print_user_names_todo_list(todo_list_database, user_name):
     pprint(user_names_todo_list)
     print("length of list is:", len(user_names_todo_list))
 
-
+def get_todo_list_item():
+    print("enter a todo list item to be added:")
+    todo_list_item = input()
+    return todo_list_item
 
 create_pickle_file_maybe(PICKLE_FILE)
 todo_list_database = get_todo_list_database(PICKLE_FILE)
@@ -80,7 +84,11 @@ todo_menu_selection = req_todo_menu_selection()
 
 if todo_menu_selection == 1:
     print_user_names_todo_list(todo_list_database, user_name)
-    
-    
+elif todo_menu_selection == 2:
+    todo_list_item = get_todo_list_item()
+    todo_list_database[user_name].append(todo_list_item)
+    with open(PICKLE_FILE, 'wb') as todo_list_database_file:
+        pickle.dump(todo_list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
+    print("item added")
 
 
