@@ -56,6 +56,9 @@ def req_todo_menu_selection():
     selection = pyinputplus.inputNum(min=1, max=4)
     return int(selection)
 
+def print_user_names_todo_list(todo_list_database, user_name):
+    print(todo_list_database[user_name])
+
 create_pickle_file_maybe(PICKLE_FILE)
 todo_list_database = get_todo_list_database(PICKLE_FILE)
 init_menu_selection = req_init_menu_selection()
@@ -68,6 +71,11 @@ if init_menu_selection == 1:
 
 elif init_menu_selection == 2:
     user_name = req_existing_user(todo_list_database)
+
+todo_menu_selection = req_todo_menu_selection()
+
+if todo_menu_selection == 1:
+    print_user_names_todo_list(todo_list_database, user_name)
 
 
     
