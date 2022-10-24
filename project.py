@@ -21,7 +21,9 @@ def get_todo_list_database(PICKLE_FILE):
 def req_user_name(todo_list_database):
     print("Enter a username:")
     user_name = input()
-    return user_name.lower()
+    user_name = user_name.lower()
+    if user_name.lower
+    return user_name
 
 def req_init_menu_selection():
     """prints initial menu. requests int input. returns int"""
