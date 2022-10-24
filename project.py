@@ -13,7 +13,7 @@ def create_pickle_file_maybe(filename):
         with open(filename, 'wb') as todo_list_database_file:
             pickle.dump(list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
 
-def get_database(PICKLE_FILE):
+def get_todo_list_database(PICKLE_FILE):
     with open(PICKLE_FILE, 'rb') as todo_list_database_file:
         todo_list_database = pickle.load(todo_list_database_file)
     return todo_list_database
@@ -33,7 +33,7 @@ def req_init_menu_selection():
 
 
 create_pickle_file_maybe(PICKLE_FILE)
-list_database = get_database(PICKLE_FILE)
+todo_list_database = get_todo_list_database(PICKLE_FILE)
 init_menu_selection = req_init_menu_selection()
 
 if init_menu_selection == 1:
