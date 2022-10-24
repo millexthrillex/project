@@ -2,16 +2,19 @@
 import pyinputplus
 
 
-def req_menu1_response():
+def req_init_menu_response():
+        """prints initial menu. requests int input. returns int"""
         print("Select an option:")
         print("1. Select from existing user list")
         print("2. create new user")
-        response = pyinputplus.inputNum()
-        return response
-        
+        selection = pyinputplus.inputNum(min=1, max=2)
+        return int(selection)
+
+def create_new_user():
+        pass
 
 def main():
-        req_menu1_response()
+        init_menu_selection = req_init_menu_response()
         pass
 
 if __name__ == '__main__':
