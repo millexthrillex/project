@@ -9,9 +9,9 @@ PICKLE_FILE= 'todo_list_database.p'
 
 def create_pickle_file_maybe(filename):
     if not path.exists(filename):
-        list_database = dict()
+        todo_list_database = dict()
         with open(filename, 'wb') as todo_list_database_file:
-            pickle.dump(list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
+            pickle.dump(todo_list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
 
 def get_todo_list_database(PICKLE_FILE):
     with open(PICKLE_FILE, 'rb') as todo_list_database_file:
@@ -38,7 +38,7 @@ def req_existing_user(todo_list_database):
         if name in todo_list_database:
             return name
         else:
-            print("name not in database. Try again:")
+            print("name not in database. Try again")
     
 
 def req_init_menu_selection():
@@ -57,7 +57,11 @@ init_menu_selection = req_init_menu_selection()
 if init_menu_selection == 1:
     user_name = req_user_name(todo_list_database)
     todo_list_database[user_name] = []
+    with open(PICKLE_FILE, 'wb') as todo_list_database_file:
+        pickle.dump(todo_list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
+
 elif init_menu_selection == 2:
     user_name = req_existing_user(todo_list_database)
+    
 
 
