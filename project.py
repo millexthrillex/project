@@ -78,6 +78,7 @@ def req_todo_menu_selection():
     print("1. Display list")
     print("2. Add item to list")
     print("3. Remove item from list")
+    print("4. Exit")
     print_horizontal_line()
     print("Enter a number:")
     selection = pyinputplus.inputNum(min=1, max=4)
