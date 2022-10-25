@@ -110,7 +110,7 @@ def get_todo_list_item_index(todo_list_database, user_name):
     print_horizontal_line()
     print("enter the number that corresponds with the item you'd like to remove")
     selection = pyinputplus.inputNum(min=1, max=index +1)
-    return int(selection)
+    return int(selection) - 1
 
 
 create_pickle_file_maybe(PICKLE_FILE)
