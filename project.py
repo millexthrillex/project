@@ -52,22 +52,22 @@ def req_user_name(todo_list_database):
 
 def req_existing_user(todo_list_database):
     while True:    
-        print("names in todo list database")    
+        print("Names in todo list database")    
         for name in todo_list_database:
             print(name)
-        print("enter a name")
+        print("Enter a name:")
         name = input()
         if name in todo_list_database:
             return name
         else:
-            print("name not in database. Try again")
+            print("Name not in database. Try again")
     
 
 def req_init_menu_selection():
     """prints initial menu. requests int input. returns int"""
     print_horizontal_line()    
-    print("1. Create new user")
-    print("2. Select existing user")
+    print("1. Create New User")
+    print("2. Select Existing User")
     print("3. Exit")
     print_horizontal_line()
     selection = pyinputplus.inputNum(min=1, max=3)
@@ -86,29 +86,29 @@ def req_todo_menu_selection():
 def print_user_names_todo_list(todo_list_database, user_name):
     user_names_todo_list = todo_list_database[user_name]
     print_horizontal_line()
-    print("your todo list looks like this:")
+    print("Your todo list looks like this:")
     if len(user_names_todo_list) == 0:
         print("(Currently no items)")
     for index, todo_list_item in enumerate(user_names_todo_list):
         print(f"{index+1}. {todo_list_item}")
         print()
-    print("length of list is:", len(user_names_todo_list))
+    print("Length of list is:", len(user_names_todo_list))
     print_horizontal_line()
 
 def get_todo_list_item():
-    print("enter a todo list item to be added:")
+    print("Enter a todo list item to be added:")
     todo_list_item = input()
     return todo_list_item
 
 def get_todo_list_item_index(todo_list_database, user_name):
     users_todo_list = todo_list_database[user_name]
     print_horizontal_line()
-    print("your todo list looks like this:")
+    print("Your todo list looks like this:")
     for index, todo_list_item in enumerate(users_todo_list):
         print(f"{index+1}. {todo_list_item}")
     print()
     print_horizontal_line()
-    print("enter the number that corresponds with the item you'd like to remove")
+    print("Enter the number that corresponds with the item you'd like to remove")
     selection = pyinputplus.inputNum(min=1, max=index +1)
     return int(selection) - 1
 
@@ -137,10 +137,10 @@ while True:
         todo_list_database[user_name].append(todo_list_item)
         with open(PICKLE_FILE, 'wb') as todo_list_database_file:
             pickle.dump(todo_list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
-        print("item added")
+        print("Item added")
     elif todo_menu_selection == 3:
         if len(todo_list_database[user_name]) == 0:
-            print("todo list has a length of 0. Select another menu option")
+            print("Todo list has a length of 0. Select another menu option")
             continue
         todo_list_item_index = get_todo_list_item_index(todo_list_database, user_name)
         del todo_list_database[user_name][todo_list_item_index]
