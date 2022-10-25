@@ -87,8 +87,10 @@ def req_todo_menu_selection():
 def print_user_names_todo_list(todo_list_database, user_name):
     user_names_todo_list = todo_list_database[user_name]
     print_horizontal_line()
+    if len(user_names_todo_list) == 0:
+        print("(Currently no items)")
     for index, todo_list_item in enumerate(user_names_todo_list):
-        print(f"{index}. {todo_list_item}")
+        print(f"{index+1}. {todo_list_item}")
         print()
     print("length of list is:", len(user_names_todo_list))
     print_horizontal_line()
@@ -103,7 +105,7 @@ def get_todo_list_item_index(todo_list_database, user_name):
     print_horizontal_line()
     print("your todo list looks like this:")
     for index, todo_list_item in enumerate(users_todo_list):
-        print(f"{index}. {todo_list_item}")
+        print(f"{index+1}. {todo_list_item}")
     print()
     print_horizontal_line()
     print("enter the number that corresponds with the item you'd like to remove")
