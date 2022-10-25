@@ -84,9 +84,10 @@ if init_menu_selection == 1:
     todo_list_database[user_name] = []
     with open(PICKLE_FILE, 'wb') as todo_list_database_file:
         pickle.dump(todo_list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
-
 elif init_menu_selection == 2:
     user_name = req_existing_user(todo_list_database)
+elif init_menu_selection == 3:
+    exit()
 
 
 while True:
