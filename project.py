@@ -69,9 +69,12 @@ def get_todo_list_item():
 
 def get_todo_list_item_index(todo_list_database, user_name):
     users_todo_list = todo_list_database[user_name]
+    print("your todo list looks like this:")
     for index, todo_list_item in enumerate(users_todo_list):
-        print(f"{index}. todo_list_item")
-    selection = pyinputplus.inputNum(min=1, max=4)
+        print(f"{index}. {todo_list_item}")
+    print()
+    print("enter the number that corresponds with the item you'd like to remove")
+    selection = pyinputplus.inputNum(min=0, max=index)
     return int(selection)
 
 
@@ -111,7 +114,4 @@ while True:
     elif todo_menu_selection == 4:
         exit()
     
-
-    elif todo_menu_selection == 4:
-        exit()
 
