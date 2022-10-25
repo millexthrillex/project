@@ -1,3 +1,21 @@
+#/------------------------------------------------------------------\
+#|                              Requirements:                       |
+#|   Text User Interface                                            |   
+#|   Read Evaluate Print loop                                       |
+#|                                                                  |
+#|   Add Tasks                                                      |
+#|   Delete Tasks when complete                                     |
+#|   list current tasks in the order they were added                |
+#|                                                                  |
+#|   Persist across runs (load in multiple terminals)  (chapter 7.2p|
+#|   every user gets their own list                                 |
+#|   editable storage format                                        |
+#|   all tasks wil be entered by the user                           |
+#|   user friendly                                                  |
+#|   report # of tasks                                              |
+#\------------------------------------------------------------------/
+
+
 import pyinputplus
 import pickle
 from os import path
@@ -6,6 +24,10 @@ from pprint import pprint
 PICKLE_FILE= 'todo_list_database.p'
 
 # Functions:
+
+def print_horizontal_line():
+    print("--------------------------------------------------")
+
 
 
 def create_pickle_file_maybe(filename):
@@ -51,7 +73,7 @@ def req_init_menu_selection():
     return int(selection)
 
 def req_todo_menu_selection():
-    print("1. Print list")
+    print("1. Display list")
     print("2. Add item to list")
     print("3. Remove item from list")
     selection = pyinputplus.inputNum(min=1, max=4)
@@ -59,7 +81,9 @@ def req_todo_menu_selection():
 
 def print_user_names_todo_list(todo_list_database, user_name):
     user_names_todo_list = todo_list_database[user_name]
-    pprint(user_names_todo_list)
+    for index, todo_list_item in enumerate(user_names_todo_list):
+        print(f"{index}. {todo_list_item}"
+        print()
     print("length of list is:", len(user_names_todo_list))
 
 def get_todo_list_item():
