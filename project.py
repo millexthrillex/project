@@ -108,6 +108,8 @@ while True:
         del todo_list_database[user_name][todo_list_item_index]
         with open(PICKLE_FILE, 'wb') as todo_list_database_file:
             pickle.dump(todo_list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
+    elif todo_menu_selection == 4:
+        exit()
     
 
     elif todo_menu_selection == 4:
