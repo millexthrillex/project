@@ -90,6 +90,7 @@ def print_user_names_todo_list(todo_list_database, user_name):
     user_names_todo_list = todo_list_database[user_name]
     print_horizontal_line()
     print("Your todo list looks like this:")
+    print()
     if len(user_names_todo_list) == 0:
         print("(Currently no items)")
     for index, todo_list_item in enumerate(user_names_todo_list):
@@ -107,11 +108,12 @@ def get_todo_list_item_index(todo_list_database, user_name):
     users_todo_list = todo_list_database[user_name]
     print_horizontal_line()
     print("Your todo list looks like this:")
+    print()
     for index, todo_list_item in enumerate(users_todo_list):
         print(f"{index+1}. {todo_list_item}")
     print()
     print_horizontal_line()
-    print("Enter the number that corresponds with the item you'd like to remove")
+    print("Enter the number that corresponds with the item you'd like to remove:")
     selection = pyinputplus.inputNum(min=1, max=index +1)
     return int(selection) - 1
 
