@@ -80,15 +80,18 @@ def req_todo_menu_selection():
     print("2. Add item to list")
     print("3. Remove item from list")
     print_horizontal_line()
+    print("Enter a number:")
     selection = pyinputplus.inputNum(min=1, max=4)
     return int(selection)
 
 def print_user_names_todo_list(todo_list_database, user_name):
     user_names_todo_list = todo_list_database[user_name]
+    print_horizontal_line()
     for index, todo_list_item in enumerate(user_names_todo_list):
         print(f"{index}. {todo_list_item}")
         print()
     print("length of list is:", len(user_names_todo_list))
+    print_horizontal_line()
 
 def get_todo_list_item():
     print("enter a todo list item to be added:")
@@ -97,10 +100,12 @@ def get_todo_list_item():
 
 def get_todo_list_item_index(todo_list_database, user_name):
     users_todo_list = todo_list_database[user_name]
+    print_horizontal_line()
     print("your todo list looks like this:")
     for index, todo_list_item in enumerate(users_todo_list):
         print(f"{index}. {todo_list_item}")
     print()
+    print_horizontal_line()
     print("enter the number that corresponds with the item you'd like to remove")
     selection = pyinputplus.inputNum(min=0, max=index)
     return int(selection)
