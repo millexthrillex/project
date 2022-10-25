@@ -52,15 +52,17 @@ def req_user_name(todo_list_database):
 
 def req_existing_user(todo_list_database):
     while True:    
-        print("Names in todo list database")    
+        print("Names in To-Do List Database")  
+        print_horizontal_line() 
         for name in todo_list_database:
             print(name)
-        print("Enter a name:")
+        print_horizontal_line()
+        print("Enter a Name:")
         name = input()
         if name in todo_list_database:
             return name
         else:
-            print("Name not in database. Try again")
+            print("Name not in Database. Try again")
     
 
 def req_init_menu_selection():
