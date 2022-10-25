@@ -27,8 +27,6 @@ PICKLE_FILE= 'todo_list_database.p'
 def print_horizontal_line():
     print("--------------------------------------------------")
 
-
-
 def create_pickle_file_maybe(filename):
     if not path.exists(filename):
         todo_list_database = dict()
@@ -117,6 +115,7 @@ def get_todo_list_item_index(todo_list_database, user_name):
     selection = pyinputplus.inputNum(min=1, max=index +1)
     return int(selection) - 1
 
+# Main code here
 
 create_pickle_file_maybe(PICKLE_FILE)
 todo_list_database = get_todo_list_database(PICKLE_FILE)
@@ -154,4 +153,5 @@ while True:
     elif todo_menu_selection == 4:
         exit()
     
+# End
 
