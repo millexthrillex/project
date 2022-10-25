@@ -19,7 +19,6 @@
 import pyinputplus
 import pickle
 from os import path
-from pprint import pprint
 
 PICKLE_FILE= 'todo_list_database.p'
 
