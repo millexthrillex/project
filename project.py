@@ -66,23 +66,27 @@ def req_existing_user(todo_list_database):
 
 def req_init_menu_selection():
     """prints initial menu. requests int input. returns int"""
+    print_horizontal_line()    
     print("1. Create new user")
     print("2. Select existing user")
     print("3. Exit")
+    print_horizontal_line()
     selection = pyinputplus.inputNum(min=1, max=3)
     return int(selection)
 
 def req_todo_menu_selection():
+    print_horizontal_line()
     print("1. Display list")
     print("2. Add item to list")
     print("3. Remove item from list")
+    print_horizontal_line()
     selection = pyinputplus.inputNum(min=1, max=4)
     return int(selection)
 
 def print_user_names_todo_list(todo_list_database, user_name):
     user_names_todo_list = todo_list_database[user_name]
     for index, todo_list_item in enumerate(user_names_todo_list):
-        print(f"{index}. {todo_list_item}"
+        print(f"{index}. {todo_list_item}")
         print()
     print("length of list is:", len(user_names_todo_list))
 
