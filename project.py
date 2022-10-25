@@ -105,4 +105,6 @@ while True:
             print("todo list has a length of 0. Select another menu option")
             continue
         todo_list_item_index = get_todo_list_item_index(todo_list_database, user_name)
+    elif todo_menu_selection == 4:
+        exit()
 
