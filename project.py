@@ -68,9 +68,9 @@ def get_todo_list_item():
     return todo_list_item
 
 def get_todo_list_item_index(todo_list_database, user_name):
-    users_todo_list = todo_list_database[user_name}
+    users_todo_list = todo_list_database[user_name]
     for index, todo_list_item in enumerate(users_todo_list):
-        print(f"[index}. todo_list_item")
+        print(f"{index}. todo_list_item")
     selection = pyinputplus.inputNum(min=1, max=4)
     return int(selection)
 
@@ -88,18 +88,20 @@ if init_menu_selection == 1:
 elif init_menu_selection == 2:
     user_name = req_existing_user(todo_list_database)
 
-todo_menu_selection = req_todo_menu_selection()
 
-if todo_menu_selection == 1:
-    print_user_names_todo_list(todo_list_database, user_name)
-elif todo_menu_selection == 2:
-    todo_list_item = get_todo_list_item()
-    todo_list_database[user_name].append(todo_list_item)
-    with open(PICKLE_FILE, 'wb') as todo_list_database_file:
-        pickle.dump(todo_list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
-    print("item added")
-elif todo_menu_selection == 3:
-    if len(todo_list_database[user_name]) == 0
-        print("todo list has a length of 0. Select another menu option")
-    todo_list_item_index = get_todo_list_item_index(todo_list_database, user_name)
+while True:
+    todo_menu_selection = req_todo_menu_selection()
+    if todo_menu_selection == 1:
+        print_user_names_todo_list(todo_list_database, user_name)
+    elif todo_menu_selection == 2:
+        todo_list_item = get_todo_list_item()
+        todo_list_database[user_name].append(todo_list_item)
+        with open(PICKLE_FILE, 'wb') as todo_list_database_file:
+            pickle.dump(todo_list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
+        print("item added")
+    elif todo_menu_selection == 3:
+        if len(todo_list_database[user_name]) == 0:
+            print("todo list has a length of 0. Select another menu option")
+            continue
+        todo_list_item_index = get_todo_list_item_index(todo_list_database, user_name)
 
