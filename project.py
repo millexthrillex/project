@@ -87,6 +87,7 @@ def req_todo_menu_selection():
 def print_user_names_todo_list(todo_list_database, user_name):
     user_names_todo_list = todo_list_database[user_name]
     print_horizontal_line()
+    print("your todo list looks like this:")
     if len(user_names_todo_list) == 0:
         print("(Currently no items)")
     for index, todo_list_item in enumerate(user_names_todo_list):
