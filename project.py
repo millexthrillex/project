@@ -105,6 +105,11 @@ while True:
             print("todo list has a length of 0. Select another menu option")
             continue
         todo_list_item_index = get_todo_list_item_index(todo_list_database, user_name)
+        del todo_list_database[user_name][todo_list_item_index]
+        with open(PICKLE_FILE, 'wb') as todo_list_database_file:
+            pickle.dump(todo_list_database, todo_list_database_file, protocol=pickle.HIGHEST_PROTOCOL)
+    
+
     elif todo_menu_selection == 4:
         exit()
 
